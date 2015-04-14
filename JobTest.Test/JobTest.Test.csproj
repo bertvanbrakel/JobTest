@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7AF55310-01CF-47B9-988F-17113AA67F90}</ProjectGuid>
+    <ProjectGuid>{97321638-507D-446A-A16E-A73955AAE0C9}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>JobTest</RootNamespace>
-    <AssemblyName>JobTest</AssemblyName>
+    <RootNamespace>JobTest.Test</RootNamespace>
+    <AssemblyName>JobTest.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -29,12 +29,32 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="TestFirst.Net">
+      <HintPath>..\packages\TestFirst.Net.0.2.1.0\lib\net40\TestFirst.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.2.1502.0911\lib\net40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="TestFirst.Net.Extensions">
+      <HintPath>..\packages\TestFirst.Net.Extensions.0.2.1.0\lib\net40\TestFirst.Net.Extensions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CsvParser.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="Address.cs" />
+    <Compile Include="CsvParserTest.cs" />
+    <Compile Include="ProgramTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JobTest\JobTest.csproj">
+      <Project>{7AF55310-01CF-47B9-988F-17113AA67F90}</Project>
+      <Name>JobTest</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
